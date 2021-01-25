@@ -1,0 +1,32 @@
+Galvanize Logo navigates to curriculum overview
+Next Steps on Platform One
+Standard
+Requesting a Gitlab Group
+Requesting a Gitlab Group
+This step MUST be completed before the end of DAY ONE. This will help ensure your request is processed in a timely fashion.
+
+Team Lead Only
+This step is ONLY meant to be completed by your team lead. If you are not the team lead, please do NOT request a new gitlab group. If your team already has a repo and a pipeline, you may skip this step.
+
+You can request a new gitlab group here:
+
+https://jira.il2.dso.mil/servicedesk/customer/portal/1/create/191 
+This process will create your team's GitLab Group. Within this group, you can create as many projects/repos as you want. Generally speaking, you will need to create one project within your group per service.
+
+When filling out this request, please include the following information:
+
+The specific IL or Impact Level that you will require for both dev and prod
+Your full technology stack.
+If you omit this information we will be unable to take action.
+
+image
+
+Our goal is to have a gitlab group provisioned to you by the end of day 3 of this workshop. Once you have your gitlab group, we will make sure you are able to add members and create repos for your apps.
+
+STANDARD
+CURRICULUM OVERVIEW
+© 2013 - 2021 Galvanize, Inc.
+PRIVACY POLICY
+TERMS OF USE
+GALVANIZE
+INFO@GALVANIZE.COM

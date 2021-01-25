@@ -1,0 +1,107 @@
+Galvanize Logo navigates to curriculum overview
+Platform One Pipelines
+Starter Project
+Running Your Pipeline
+Starter Project
+Objectives
+By the end of this lesson you will be able to:
+
+Receive your assigned starter project
+Getting Started
+We have prepared a Java Spring starter project that you will be using for the purposes of this workshop. You have been assigned a specific repo that can find following the instructions below.
+
+Find the repo that corresponds to your name: Galvanize Spring Starters.  If you cannot access Google Docs, please notify an Instructor on Mattermost so they can send your repo assignment directly.
+
+GitLab Web IDE
+For this workshop we recommend using the GitLab Web IDE. 
+
+If your are a developer who prefers to work in your own local environment you are more than welcome to clone down the repository and do so. We will assume you have the requisite Git knowledge to clone, commit and push as needed.
+
+The GitLab Web IDE functions the same as a traditional editor for your code and can be found here:
+
+image
+
+Clicking the Web IDE button will take you a new page in your browser where you can navigate the files in this repository and make changes as directed.
+
+When you make changes, you'll need to use the commit button in the bottom left. There's no need to make any changes right now, so please don't!
+
+image
+
+Developing Locally
+If you are using the GitLab Web IDE you may skip this section and move on to the Running Your Pipeline lesson.
+
+If you are a developer who wishes to work in their own local environment please be aware, we offer limited debugging support for environment issues. We will assume you are familiar with Git and the problem solving process to handle any challenges as they come up.
+
+The first thing you'll need to do is Clone down the repository so that you can work on this project locally.
+
+If you have not set a password on GitLab  you will need to do so in order to clone via HTTPS. When signing into GitLab through the Platform One SSO a GitLab password is NOT set for you, you need to do this manually.
+
+Password Issues?
+If you have issues setting your password you can alternatively set up a Personal Access Token (PAT)  .
+
+
+
+Name the token, provide an expiration date and under Scopes select the checkboxes for read_repository and write_repository. Then select the "Generate token" button and copy the provided token. Be sure to save this in a safe place!
+
+
+
+During the cloning process, when asked for your password, you can use this newly generated PAT as your password!
+
+Note: Currently cloning via SSH is not supported by Platform One. You will need to clone via HTTPS.
+
+image
+
+Open your terminal/CLI. You'll need to do a few things here to clone your repo:
+
+Create a new working directory for the content in this workshop
+Clone down your repo using the command: git clone <your-repo-address>
+You may need to log in/enter your password here
+Open in your IDE of choice
+image
+
+If you prefer you can also use your IDE/GUI to clone down your repo.
+
+Using Your Starter Project
+If you are using the GitLab Web IDE you may skip this section and move on to the Running Your Pipeline lesson.
+
+For most SpringBoot projects (made from Spring Initializr  ) you can run the following commands from the CLI/terminal:
+
+Your Local Environment
+The below commands may not work in your local environment. You may need to do some debugging with gradle to get it configured properly and working in your environment. Don't worry! You do not need to be able to run this application locally. We provide this information as an option to developers who wish to play around.
+
+1) ./gradlew build to build
+
+2) ./gradlew test to run the test suite
+
+3) ./gradlew bootRun to run the server
+
+Example requests/endpoints:
+
+Method	URL	Response
+HTTP GET	http://localhost:8080/ws##-api/	Homepage
+HTTP GET	http://localhost:8080/ws##-api/employee/{id}	{"id":int,"name":string,"age":int,"salary":double}
+These same instructions on using your starter project can be found in your repo's README.md. There's no need to spin up this app now, in the next lesson you'll be deploying it directly to Platform One, so why not hold off on exploring it until it's deployed and live?
+
+OPT OUT - CTF / AGILE CONTENT
+NEXT:  
+RUNNING YOUR PIPELINE
+© 2013 - 2021 Galvanize, Inc.
+PRIVACY POLICY
+TERMS OF USE
+GALVANIZE
+INFO@GALVANIZE.COM
+1) ./gradlew build to build
+2) ./gradlew test to run the test suite
+3) ./gradlew bootRun to run the server
+
+
+
+
+
+
+
+
+
+
+
+

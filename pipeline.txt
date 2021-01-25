@@ -1,0 +1,75 @@
+Galvanize Logo navigates to curriculum overview
+What Is A Pipeline?
+What is a Pipeline?
+What is a Pipeline?
+Learning Objectives
+By the end of this lesson, you will be able to:
+
+Define the concept of CI/CD
+Discern how you can benefit from CI/CD
+What is a Pipeline?
+The pipeline builds the code for a machine to run locally. It then runs unit tests, integration tests, linting, SonarQube static code analysis, Fortify, and much more. When the tests are successful, it deploys the application to the designated server.
+
+Continuous Integration (CI)
+Continuous integration (CI) allows developers to merge in code changes into the master branch of a version controlled repository throughout the day. CI also includes automating all of the tests. This ensures that any code a developer merges into master will always produce code written to spec.
+
+Automatically testing code ensures that code base failures can be found quickly. This means that bugs and security issues can be addressed more efficiently.
+
+Continuous Delivery (CD)
+Using Continuous Delivery (CD), developers can be confident that rapid changes into production are reliable and sustainable. This allows developers to complete an end-to-end test of the code deployed in an environment that mimics production.
+
+CI/CD and Production
+Using CI/CD methods, a team that utilizes Agile development practices can push tested and secured code to a production environment multiple times per sprint. Utilizing Platform One, your code will be tested using industry standard tools such as SonarQube static code analysis, Fortify, Twistlock, and Anchore to ensure that the code you push to production will be hardened and comply with NIST and DoD standards.
+
+Your application will also be Dockerized using hardened containers. This means that all your code will live inside a Docker container with the bare minimum tools to make your application run. Running applications in hardened containers cuts down on the number of attack vectors towards your application.
+
+In addition, your Dockerized code will live in the Platform One Mission Bootstrap clusters. These are Kubernetes clusters installed with Istio, a service mesh to securely handle all incoming and outgoing connections. Alongside of Istio, the cluster is also secured using Keycloak, which is an authentication server that captures all incoming traffic. Keycloak authenticates all incoming traffic against the Air Force portal to ensure that the incoming user has proper rights to be allowed into the cluster.
+
+Challenges
+1
+Purpose of a Pipeline
+Which of the following are among the main purposes of a CI/CD pipeline?
+
+SELECT ALL CORRECT OPTIONS
+
+Test your code
+
+
+Build your code
+
+
+Make edits to your code
+
+
+Deploy your code to an environment
+
+RESET INPUT
+CHECK ANSWER
+2
+Production Deployment
+How does code move to production?
+
+SELECT ALL CORRECT OPTIONS
+
+Drag and drop files
+
+
+Through a CI/CD pipeline
+
+
+By passing the testing stages
+
+RESET INPUT
+CHECK ANSWER
+BENEFITS OF CATO
+NEXT:  
+PIPELINE CONFIGURATION FOR PLATFORM ONE
+© 2013 - 2021 Galvanize, Inc.
+PRIVACY POLICY
+TERMS OF USE
+GALVANIZE
+INFO@GALVANIZE.COM
+
+
+
+

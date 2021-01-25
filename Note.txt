@@ -1,0 +1,137 @@
+25 Jan 2021------------------------------------------------------------------------------------------------------------
+
+Zoom Link - https://www.zoomgov.com/j/1618908818?pwd=WUNSWGoyRUJ2TWlGNVdHY2w2NmI0Zz09
+Zoom Password - 406593
+Learn/Galvanize - https://learn-2.galvanize.com/cohorts/2493
+GitLab - https://code.il2.dso.mil/tron/products/workshops
+MatterMost - https://chat.il2.dso.mil/p1-onboarding/channels/24-p1-workshop-january-25
+Confluence - https://confluence.il2.dso.mil/display/P1CYBER/Path+to+CtF
+
+To do 
+    1. Coordinate hardware with Zach Hosier/Sam Kreimier 
+    2. Send signed recommendation letter and travel letter for 3 SOPS (group everything in email)
+    3. 
+
+Git
+    Synchronize your local repository with the remote repository on GitHub.com
+
+    $ git fetch
+    Downloads all history from the remote tracking branches
+
+    $ git merge
+    Combines remote tracking branches into current local branch
+
+    $ git push
+    Uploads all local branch commits to GitHub
+
+    $ git pull
+    Updates your current local working branch with all new commits from the corresponding remote branch on GitHub. git pull is a combination of git fetch and git merge
+
+
+Course start --------------------------------------------------------------------------------
+Platform One is a security-first approach to modern software development for military weapon systems that leverages industry best-practices.
+Plan for today
+    - intros
+    - expectations
+    - tech-check
+    - Platform 1 SSO 
+breaks about every 2 hours
+
+9 CT start of day
+12-1 lunch (CT) 
+5 CT end of day 
+
+post questions to MatterMost
+
+Ashe - instructor in Galvanize
+Dave - instructor
+
+Name, location, team/role, background (languages/experience)
+Chris Harden - Unity developer
+
+P1 - Need to develop and deploy software quickly while maintaining high security level
+    - mostly legacy waterfall practices
+    - agile, steimied by cybersecurity 
+    - solution - design secure software/process/testing, etc... accredidation done by time code is complete
+
+CATO - continous authority to operate
+    1. People 2. Process 3. Pipelines
+    AGILE!!!! XP 
+p1- common Platform
+workshop  - hands on experience developing and deploying on P1
+
+Agile XP = extreme programming
+
+Platform 1 is new
+
+
+
+Pipelines ---------------------------------------------------------------------------------------------------------
+pipeline - tool used to automate software delivery process
+CI - continuous integration
+    merge work together every day with other devs
+CD - continous delivery
+
+pipeline builds the code, runs tests (CI), and safely deploys a new version of the application (CD)
+
+Pipeline value 
+ - deploy software faster, less manual errors, ...
+ cost -
+    = write automated tests
+    = need a continous integration server
+    = devs need to push/merge changes OFTEN
+ benefits
+    - less bugs, less risk
+    - less context switching
+    - reduced testing costs
+    - less pressure
+    - customers see improvements
+ wins
+    - speed
+    - safety
+        - continous security (on libraries you are importing as well)
+
+robust unit testing suite!!!
+
+
+
+working environment
+https://code.il2.dso.mil/tron/products/workshops/workshop-apps/p1-workshop-java-33
+
+
+
+
+Pair Programmer - Gilberto Garza
+
+https://workshop.staging.dso.mil/ws33-api
+
+user : willjantscher
+personnal access token : MWRrGhYohHWvf9542L75
+
+
+
+
+Making changes
+    - source code management
+        - making changes to the same things
+        - 
+    - Git - manage multiple users on the same code (changes)
+    - Conway's Law = communiction structure of an org is often reflected in the file system/branching system
+
+overwriting
+branch development
+trunk development
+    Development branch and Production branch
+    Everyone creates a feature branch (lasts 1-3 days)
+        make changes
+        merge into dev branch
+        delete the branch
+Merge request 
+    - approval (by manager/senior dev)
+    
+
+
+
+
+
+
