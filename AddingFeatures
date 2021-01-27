@@ -1,0 +1,186 @@
+Galvanize Logo navigates to curriculum overview
+Platform One Pipelines
+Starter Project
+Running Your Pipeline
+Merge Requests
+Adding Features
+Adding Features
+Learning Objectives
+By the end of this lesson you will be able to:
+
+Create a new feature for your starter project
+Manage protected branches
+Implement feature branch workflow
+Remediate a failure in the pipeline
+New Feature Branch
+In keeping with the feature branch workflow discussed in the Merge Requests lesson you'll need to create a new branch.
+
+Developing Locally
+If are NOT using the GitLab Web IDE, before you create a new branch, you'll need to pull the latest changes from the remote. Remember, the changes you made by merging the employee2 and the master branch aren't reflected in your local repository.
+
+
+
+In your CLI/terminal, checkout the master branch, pull the latest changes from the remote repository, and then create the feature branch using these commands:
+
+git checkout master
+git pull origin master
+git checkout -b feature/add-manager
+In Gitlab t there are several ways to create a new branch. The easiest is to go to your main repository page in your browser and use the GitLab sidebar to select Repository => Branches. Then click the New Branch button in the top right.
+
+image
+
+Be sure to name your branch feature/add-manager
+
+Adding a New Feature
+Now it's time to add your new feature. Open your IDE and find the Employee.java file. The path to this is as follows:
+
+src/main/java/com/galvanize/crudSample/domain/Employee.java
+The feature we want to add is to allow for each employee to have a manager property. On line 11 of Employee.java add the following code:
+
+// Employee.java
+
+  long managerId;
+
+  public long getManagerId() {
+      return managerId;
+  }
+Once you've added the above snippet, your code should look like this:
+
+image
+
+That's it! Now it's time to commit your changes. Make sure you're committing to the correct branch i.e. feature/add-manager
+
+Tracking upstream branches
+If you're developing locally (not using the GitLab Web IDE) using the CLI/terminal you can commit and push your changes with the following commands.
+
+git add .
+git commit -m "Adding manager property to employee class"
+git push -u origin HEAD
+
+
+As a note, HEAD in the command git push -u origin HEAD is a reference to the current branch. -u sets the upstream to the remote specified - origin in this case - so that whenever the head is pointed to the feature/add-manager, going forward, you can simply run git push.
+
+Your changes are now live on GitLab. You can view your branch by navigating to your repository and clicking the dropdown as indicated below and selecting your branch:
+
+image
+
+Next you'll need to initiate a merge request. First you'll need to configure your pipeline to run on your new branch.
+
+Protected Branches
+Git is very easy to use...and abuse. A single git push --force command can easily ruin the day for a lot of people. GitLab and Platform One leverage protected branches to allow your team finer control over how developers interact with your codebase.
+
+By default, a protected branch does four simple things:
+
+It prevents its creation, if not already created, from everybody except users with Maintainer permission.
+It prevents pushes from everybody except users with Allowed permission.
+It prevents anyone from force pushing to the branch.
+It prevents anyone from deleting the branch.
+Platform One pipelines only run on protected branches. By default the master branch is protected. We have configured your repository to automatically protect all branches. If you're curious about Protected Branches you can review them:
+
+Notice
+This information is provided for educational purposes. You currently don't have permissions to click through and access the protected branches as depicted below.
+
+At the bottom of your sidebar select Settings => Repository.
+image
+
+Select the Expand button next to Protected Branches
+image
+
+We've used the GitLab wildcard features to automatically protect all branches.
+image
+
+There's no need for you to do anything regarding the protected branches - but this knowledge may be valuable in the future when you're working on your own application.
+
+The next thing you need to do is submit your merge request.
+
+You'll want to merge your feature/add-manager branch into master. If you don't remember how to do this, please refer back to the Merge Requests Lesson.
+
+Once you submit your merge request you may notice that the Merge button has been replaced with a Merge when pipeline succeeds button (pictured below). This serves to prevent you from merging broken code into your master branch. So before your feature branch can be successfully merged into master, it will need to pass all pipeline stages...
+
+image
+
+Once you submit your merge request, observe how your build progresses then move on to the checkpoint below.
+
+If you don't see a blue Merge button, it's possible your pipeline has already run. In the sidebar select CI/CD => Pipelines and see if there's one that ran on your feature/add-manager branch. If you see a RED merge button, do NOT select it.
+
+Challenges
+1
+Failing Pipeline
+At what stage did your pipeline fail?
+
+
+.pre
+
+
+build
+
+
+unit test
+
+
+SCA
+
+
+build image
+
+
+deploy staging
+
+RESET INPUT
+CHECK ANSWER
+Remediation
+image
+
+Branch Pipelines
+You may have noticed that the pipeline that ran for your feature branch doesn't execute the same stages as your master branch. Identify which stages are left out and discuss with your pair why you may not want those stages running (by default) on all your branches.
+
+In order to remediate this failed pipeline execution, you need to address the unit tests that failed. Click on the unit tests stage as indicated above and review the error output.
+
+The test runner told you which tests failed, so you should start there.
+
+image
+
+In your IDE open up your EmployeeControllerMvcTest.java.
+
+src/test/java/com/galvanize/crudSample/controller/EmployeeControllerMvcTest.java
+According to your error output, this is where your unit tests are failing. Take a moment to see if you can figure out what's going wrong before moving on.
+
+On line 31 your test is expecting the JSON payload to have a size of 4. You need to update this test to reflect the addition of the manager field.
+
+// EmployeeControllerMvcTest
+
+.andExpect(jsonPath("$.*", hasSize(5)))
+Your updated and fixed EmployeeControllerMvcTest.java should look like this:
+
+image
+
+Remember, if you're developing locally you can run your test suite in your terminal/CLI with ./gradlew test
+
+Once you've made these changes it's time to commit them. Make sure you're committing to the correct feature/add-manager branch!
+
+Now it's time to resubmit your merge request. You should be a pro at this by now so we won't spend any time reviewing the process.
+
+Once your merge succeeds, navigate to the deployed application in your browser and verify the JSON response when you visit /employee/2.
+
+Where's My Change?
+When you visit a website, your browser takes pieces of the page and stores them on your computer's hard drive on the chance that it may come in useful later. When navigating to employee/2 your browser may choose to load data from its cache, which means you may be loading old data from before our latest build. You can force your browser to reload the assets from the server by doing a hard refresh.
+
+Windows: CTRL + SHIFT + R
+Mac: CMD + SHIFT + R
+In addition to the above solution, please note it can sometimes take a few minutes AFTER the build completes for the pod to refresh, go live and begin accepting connections. So you may need to wait a few minutes to see your changes.
+
+2
+JSON Response for Manager Object
+Please paste the entirety of the JSON response after navigating to /employee/2.
+
+Paste JSON response here.
+RESET INPUT
+CHECK ANSWER
+MERGE REQUESTS
+NEXT:  
+STANDARD
+© 2013 - 2021 Galvanize, Inc.
+PRIVACY POLICY
+TERMS OF USE
+GALVANIZE
+INFO@GALVANIZE.COM

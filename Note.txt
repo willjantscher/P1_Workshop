@@ -128,10 +128,244 @@ trunk development
         delete the branch
 Merge request 
     - approval (by manager/senior dev)
+    merge request = pull request
+
+_________________________________________________________________________________________________________________________________________________________________________
+Developer Flow Using Git
+The basic developer flow when working on code is as follows:
+
+git branch to check what branch you are on
+git checkout master to make sure you are on master
+git pull to always pull down latest code changes from master
+git checkout -b feature/<branch-name> to create and switch to a branch. Describe the branch name by what you are working on, whether it be a feature, bug, hotfix, etc.
+git add <filepath> to add in specific files, or git add . to add in all files changes in the working directory to the Git staging area
+git commit -m "<commit message>" to describe what you have changed from the files you added in your commit
+git push to push up all of your changes you made up to your branch on GitLab
+Finally, create a merge request on GitLab!
+_________________________________________________________________________________________________________________________________________________________________________
+Pair programming
+    - code quality
+    - fewer bugs
+    - transfer of knowledge 
+    - culture change 
+    - constant code review
+Driver/Navigator
+    Navigator   
+        - keep big picture inmind
+        - knows where you are going
+        - gives high or mid-level instructions to the Driver
+        - Not describing syntax
+    Driver
+        - writes code
+        - proving/disproving theories by testing (breakpoints, logging, manual)
+        - asking questions
+Skill gap is narrow - ping pong often (unit tests to actual code)
+Skill gap wide
+    - more experienced dev should spend more time navigating
+
+rotating pairs on a team- how often should you rotate?
+anchor of the story
+
+Pair programming styles
+https://martinfowler.com/articles/on-pair-programming.html#Styles
+
+Adding features
+git add .
+git commit -m "Adding manager property to employee class"
+git push -u origin HEAD
+
+26 Jan 2021------------------------------------------------------------------------------------------------------------
+Pipeline stages
+    segregation of duties
+    .pre 
+    build 
+    unit tests 
+    Sca 
+    build image 
+    scan image 
+    deploy staging
+! indicates that the job is allowed to fail (not for a production environment) 
+.gitlab-ci.yml file - defines stages in pipeline (references another project, branch, file = where pipeline is living)
+    code.il2.dso.mil/platform-one/devops/pipeline-products/-/blob/workshop-ci/products/workshop/workshop-gradle-ci.yml
+do not have access to this file
+settings, Ci/CD =- custom CI configuration path will define the pipeline
+
+Static analysis
+    static code analysis - identify and remove unwanted things in source code (code smells, vulnerabilities, insecure references, etc.)
+    lots of math
+    advantages - feedback, insights into code errors, enforce best practices, can find things that people cant (dependencies/libraries node security vulnerabilities)
+    disadvantages - too much dependency on tools, 
+
+    Sca 
+        dependency check - check dependencies libraries for vulnerabilities
+        fortify - code quality and security vulnerabilities
+        sonarqube - code quality, enforce code coverage standards, some sec check
+        trufflehog - checks commits, didn't commit passwords or credentials (very sensitive so may want to disable)
+
+UNIT TESTING FOR UNITY/C#
+    - xml report of code coverage is good for sonarqube coverage 
+    - may be different for unit tests job (C# environment)
+    - 
+
+
+Docker
+    - in continuous development
+    - docker- tool for creating containers (instances of you application)
+        uses a dockerfile to define the image which contains your application configuration instructions
+    - CONTAINERS - ISOLATE THE application to its own unique environment    
+        - isolate application
+        - easy to deploy
+        - compatibility accross platforms 
+        facilitates the CI/CD process
+    virtual machines also emulate hardware (containers do not)
+        virtual machines emulate the complete computer system
+Hardened Images - a docker image pulled from the docker registry that is stripped down in terms of functionality
+    - severely reduces the control a user would have inside the image - reducing the amount of attack vectors available to a bad actor should they gain access ot the docker image or containers
+    - required for CtF
+    -gitlab registry lists available images that are already Hardened
+
+Code coverage
+    - listener on each line of code
+    - code coverage outputs report
+    - what code is executed by tests (not necessarily what is tested)
+    cheating
+        - no assert statement
+    - Mutation Coverage / Fuzzing
+        changes code to see if the test suite noticed (+ to -, > to <, etc...)
+    - 80% coverage requirement for P1 (doesn't include mutation coverage)
+    - 
+
+
+AGILE'
+    XP is focus on technical aspects
+    improve software quality and responsiveness to changing customer requirements
+    Scrum - sprints 2 weeks to 1 month (xp is 1-2 weeks)
+    SCRUM - no changes during sprints
+
+TDD
+    tests - automated way to make sure the code does what we want
+    writing tests first
+        - think about edge cases, understand what you're building, document expected behavior, faster feedback loop, fewer bugs, safety when refactoring
+    Unit tests  
+        focuses on a single method or class TEST IN ISOLATION (no access to external api, database, server, etc.)
+    Integration tests   
+        make sure that different components work together
+    End  to end tests
+        ensures app works in real world situations
+
+    Unit Tests
+        focus single mehtod or class
+        test only one concept at a time (1 test for 1 concept)
+        doesn't communicate accross network
+        doesn't touch databases
+
+    TDD - write code in order to pass a previously written test (it is a mindset)
+        no code should exist without consumers, tests are first consumers, there are no bugs, only missing tests, automated error driven development
+
+        good tests make good documentation
+        code faster 
+        code correctly faster 
+        won't forget to write the tests
+        solid starting point for later work 
+        pushes you to write cleaner code 
+        write more meaningful tests 
     
+    TDD Workflow (red, green, refactor)
+    TDD has a lower TCO (total cost of ownership)
+
+    function signature - 
+    SEAT 
+        Setup (initial state)
+        Exercise (invoke function to modify state)
+        Assert (modified state = ...)
+        Teardown (close file/connection etc.)
+
+1. Architecture design
+2. Integration Tests written
+3. Unit Tests
+4. Integration tests run, End to End tests
+
+    TDD - Test Driven Development
+    BDD - Behavior Driven Development 
+        
+
+
+27 Jan 2021------------------------------------------------------------------------------------------------------------
+User stories and behavior driven development (BDD)
+    - user stories are not tasks
+        - one user storie can have many tasks
+    - stories should be high level
+    - BDD - TDD on integration tests
+    - clarify requirements (business and devs)
+user story - acceptance criteria - dev notes - design notes
 
 
 
 
 
+Behavior Driven Development (BDD) is several things:
 
+A language for defining the behavior of an application.
+A collaboration tool for engineers, testers, and product managers.
+A system for the automated testing of those behaviors.
+
+BDD's most distinguishing characteristic is that the tests are written in plain english. By doing this we allow both technical and non-technical members of the team to describe the requirements of a software system.
+
+Many think that BDD and TDD are the same and many are confused about what is what. When we talk about TDD, we talk about a set process. You are basically using automated unit tests in order to give the developers a direction on how to design the software. BDD can be seen as a set of best practices for writing great tests.
+
+
+Title (one line describing the story)
+
+Narrative:
+As a [role]
+I want [feature]
+So that [benefit]
+
+Acceptance Criteria: (presented as Scenarios)
+
+Scenario 1: Title
+Given [context]
+  And [optional context]
+When  [event]
+Then  [outcome]
+  And [optional context]
+
+UCD/UX Process
+competitor analysis (what can we do better, what are they doing well, what could we do to differentiat/gain an advantage)
+
+Customer journey map
+Workflow
+
+UCD - User Centric design
+
+
+
+Standup 
+    - first meeting
+    - every day
+    - keep it brief (5 min)
+    - what you did yesterday, today, blockers?
+Retrospective
+    - after each integration
+    - wins, troubles, improvements
+    - scoped to previous integration
+    - use task managemnent tool (JIRA, ASANA, retro) 
+    - Distill improvements into take-always
+    - propose action items, assign action items, etc. 
+
+CATO - Platform1/partybus accredits the process, culture, people etc.
+    address risk management and security control
+CTF is requirement to deploy on that platform
+    1. On-boarding
+        - meet cybersecurity team, CTF checklist, 
+    2. 
+    3. 
+start CTF process as early as possible
+
+
+
+
+
+BUY AMC and GME
+CRSR
+NOK

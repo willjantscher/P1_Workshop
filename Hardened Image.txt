@@ -1,0 +1,68 @@
+Galvanize Logo navigates to curriculum overview
+Hardened Images
+The Benefits of Hardened Images
+The Benefits of Hardened Images
+Learning Objectives
+By the end of this lesson you will be able to:
+
+Define "hardened image"
+Identify why Platform One uses hardened images
+What is a hardened image?
+A hardened image is a Docker image  that we pull from the Docker Hub registry; we strip down a majority of the functionality of the image.
+
+Why use hardened images?
+Why is this important? The simple answer is you won't receive a CtF (certificate to Field) to deploy on Platform One without one!
+
+The process of hardening an image (outlined above) severely reduces the control a user would have inside inside the image, which effectively reduces the amount of attack vectors that a bad actor would have should they gain access to the docker image or docker container. Platform One requires all applications that live inside of the Platform One clusters to utilize hardened images.
+
+Here's an example:
+
+In some Docker Python images below 3.8, Twistlock (a image scanning tool) identifies that a bad actor could perform a ReGeX-based DoS attack which would slow down the container (and potentially other containers inside of the cluster) if they gained elevated right access to the running container.
+
+From a security standpoint, Platform One cannot assume the risk of an unsecured image living inside of development, staging, or production clusters. The obvious reason being that if a bad actor was able to get in, they could potentially take down other applications in Platform One.
+
+Iron Bank
+In order to meet stringent DoD security requirements, Platform One provides Iron Bank hardened images: https://ironbank.dso.mil/  .
+
+If an image for your application tech stack does not exist, Platform One has a dedicated hardening team that can create new hardened images for you. Please contact someone from the Hardening Team on Mattermost.
+
+Challenges
+1
+What is a hardened image
+What is a hardened image?
+
+
+Docker image pulled straight from docker hub
+
+
+Docker container with majority of its functionality stripped
+
+
+Docker image with majority of its functionality stripped
+
+RESET INPUT
+CHECK ANSWER
+2
+Why hardened images
+Why should we use hardened images?
+
+SELECT ALL CORRECT OPTIONS
+
+To receive Platform One CTF
+
+
+To reduce the attack vectors
+
+
+To comply with security standards of the DoD
+
+RESET INPUT
+CHECK ANSWER
+PIPELINE CONFIGURATION FOR PLATFORM ONE
+NEXT:  
+ARCHITECTURE DECISION RECORDS
+© 2013 - 2021 Galvanize, Inc.
+PRIVACY POLICY
+TERMS OF USE
+GALVANIZE
+INFO@GALVANIZE.COM
